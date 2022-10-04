@@ -1,0 +1,94 @@
+from kivymd.app import MDApp
+from kivy.uix.button import Label
+from kivymd.uix.label import MDLabel
+from kivy.lang.builder import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+import kivy
+kivy.require('2.1.0')
+
+screen_helper = """
+ScreenManager:
+    MenuScreen:
+    ProfileScreen:
+    UploadScreen:
+<MenuScreen>:
+    name: 'menu'
+    MDRectangleFlatButton:
+        text: 'Profile'
+        pos_hint: {'center_x':0.9,'center_y':0.9}
+        on_press: root.manager.current = 'profile'
+    MDRectangleFlatButton:
+        text: 'Upload'
+        pos_hint: {'center_x':0.78,'center_y':0.9}
+        on_press: root.manager.current = 'upload'
+    Label:
+        text:"[color=63c5da][b]BlueWarriors[/b][color=63c5da]"
+        pos:(-320,280)
+        halign:'left' 
+        font_size: '21sp'
+        markup: True
+
+    
+<ProfileScreen>:
+    name: 'profile'
+    MDLabel:
+        text: 'Profile/nRank: /n'
+        halign: 'center'
+        markup: True
+    MDRectangleFlatButton:
+        text: 'Back'
+        pos_hint: {'center_x':0.1,'center_y':0.1}
+        on_press: root.manager.current = 'menu'
+    Label:
+        text:"[color=63c5da][b]BlueWarriors[/b][color=63c5da]"
+        pos:(-320,280)
+        halign:'left' 
+        font_size: '21sp'
+        markup: True
+        
+<UploadScreen>:
+    name: 'upload'
+    MDLabel:
+        text: 'Upload'
+        halign: 'center'
+    MDRectangleFlatButton:
+        text: 'Back'
+        pos_hint: {'center_x':0.1,'center_y':0.1}
+        on_press: root.manager.current = 'menu'
+    Label:
+        text:"[color=63c5da][b]BlueWarriors[/b][color=63c5da]"
+        pos:(-320,280)
+        halign:'left' 
+        font_size: '21sp'
+        markup: True
+        
+"""
+
+
+class MenuScreen(Screen):
+    pass
+
+
+class ProfileScreen(Screen):
+    pass
+
+
+class UploadScreen(Screen):
+    pass
+
+
+# Create the screen manager
+sm = ScreenManager()
+sm.add_widget(MenuScreen(name='menu'))
+sm.add_widget(ProfileScreen(name='profile'))
+sm.add_widget(UploadScreen(name='upload'))
+
+
+class BlueWarriors(MDApp):
+
+    def build(self):
+        screen = Builder.load_string(screen_helper)
+        return screen
+
+
+BlueWarriors().run()
