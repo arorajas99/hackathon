@@ -10,7 +10,23 @@ def main():
     button.place(x=100,y=100)
     button.pack()
     win.configure(bg='pink')
+    button2 = tk.Button(win, text='Cancel an appointment',command=cancel)
+    button2.place(x=100,y=200)
+    button2.pack()
+    button3 = tk.Button(win, text='View an appointment',command=view)
+    button3.place(x=100,y=300)
+    button3.pack()
     win.mainloop()
+
+def cancel():
+    print("cancel")
+
+
+def view():
+    print("view")
+
+
+
 
 
 def message():
