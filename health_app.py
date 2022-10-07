@@ -5,7 +5,7 @@ import ast
 import webbrowser
 from twilio.rest import Client
 
-w=Tk()
+w=Toplevel()
 w.geometry('900x500')
 w.configure(bg='#262626')#12c4c0')
 w.resizable(0,0)
@@ -136,7 +136,7 @@ def registration2():
             e2.delete(0,'end')    
         def on_leave(e):
             if e2.get()=='':   
-                e2.insert(0,'Password')
+                e2.insert(0,'Phone number')
     
         
         e2 =Entry(f1,width=21,fg='black',border=0,bg='white')
@@ -233,14 +233,14 @@ def registration2():
             e3.delete(0,'end')    
         def on_leave(e):
             if e3.get()=='':   
-                e3.insert(0,'Confirm Password')
+                e3.insert(0,'Phone number')
     
         
         e3 =Entry(f1,width=21,fg='black',border=0,bg='white')
         e3.config(font=('Microsoft YaHei UI Light',11, ))
         e3.bind("<FocusIn>", on_enter)
         e3.bind("<FocusOut>", on_leave)
-        e3.insert(0,'Confirm Password')
+        e3.insert(0,'Phone number')
         e3.place(x=30,y=130+70)
     
         Frame(f1,width=295,height=2,bg='black').place(x=25,y=157+70)    
@@ -277,13 +277,13 @@ def registration2():
     
     
         #-------------------------------------------------------
-        Button(f1,width=39,pady=7,text='Sign up',bg='#ff4f5a',fg='white',border=0,command=signup_cmd).place(x=35,y=204+60)
+        Button(f1,width=38,pady=7,text='Sign up',bg='#ff4f5a',fg='white',border=0,command=signup_cmd).place(x=35,y=204+60)
         l1=Label(f1,text="Already have an account?",fg="black",bg='white')
         l1.config(font=('Microsoft YaHei UI Light',9, ))
-        l1.place(x=70,y=250+63)
+        l1.place(x=60,y=250+63)
     
-        b2=Button(f1,width=6,text='Sign in',border=0,bg='white',fg='#ff4f5a',command=signin)
-        b2.place(x=210,y=250+63)
+        b2=Button(f1,width=25,text='Book an appointment',border=0,bg='white',fg='#ff4f5a',command=signin)
+        b2.place(x=200,y=250+63)
     
     signin() #default screen
     
@@ -303,7 +303,7 @@ def home():
     f1.destroy()
     f2=Frame(w,width=900,height=455,bg='#262626')
     f2.place(x=0,y=45)
-    l2=Label(f2,text='Home',fg='white',bg='white')
+    l2=Label(f2,text='Home',fg='white',bg='#262626')
     l2.config(font=('Comic Sans MS',90))
     l2.place(x=290,y=150-45)
     toggle_win()
@@ -360,7 +360,7 @@ def toggle_win():
 
     bttn(0,80,'H O M E','#0f9d9a','#12c4c0',home)
     bttn(0,240,'Goverment Advisory','#0f9d9a','#12c4c0',advice)
-    bttn(0,160,'BOOK AN APPOINTMENT','#0f9d9a','#12c4c0',registration)
+    bttn(0,160,'BOOK AN APPOINTMENT','#0f9d9a','#12c4c0',registration2)
     bttn(0,320,'EMERGENCY','#0f9d9a','#12c4c0',None)
     
     
